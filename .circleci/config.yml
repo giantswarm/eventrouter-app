@@ -5,7 +5,7 @@ orbs:
 workflows:
   push-to-app-catalog:
     jobs:
-      - architect/push-to-app-catalog:
+    - architect/push-to-app-catalog:
         name: "package and push chart to app catalog"
         app_catalog: "giantswarm-playground-catalog"
         app_catalog_test: "giantswarm-playground-test-catalog"
