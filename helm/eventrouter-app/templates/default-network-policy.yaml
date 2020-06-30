@@ -1,0 +1,10 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: default-deny-all
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  - Ingress

@@ -36,7 +36,7 @@ metadata:
     chart: {{ template "eventrouter-app.chart" . }}
     app: {{ template "eventrouter-app.name" . }}
     release: "{{ .Release.Name }}"
-    heritage: "{{ .Release.Service }}"s
+    heritage: "{{ .Release.Service }}"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

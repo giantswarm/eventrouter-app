@@ -1,0 +1,29 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ template "eventrouter-app.name" . }}-network-policy
+  labels:
+    chart: {{ template "eventrouter-app.chart" . }}
+    app: {{ template "eventrouter-app.name" . }}
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "eventrouter-app.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  egres:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: kube-system
+      podSelector:
+        matchLabels:
+          k8s-app: api-server
+    ports:
+    - protocol: TCP
+      port: 443
+  policyTypes:
+  - Egress
+  - Ingress
