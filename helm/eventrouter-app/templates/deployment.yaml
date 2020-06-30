@@ -2,7 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "eventrouter-app.name" . }}-deployment
-  namespace: {{ .Release.Namespace }}
+  labels:
+    chart: {{ template "eventrouter-app.chart" . }}
+    app: {{ template "eventrouter-app.name" . }}
+    release: "{{ .Release.Name }}"
+  namespace: "{{ .Release.Namespace }}"
 spec:
   selector:
     matchLabels:
