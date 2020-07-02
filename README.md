@@ -17,7 +17,7 @@ The application doesn't need any dependencies nor config, so it's sufficient to 
 helm install -n loki giantswarm-playground-catalog/eventrouter-app
 
 ## Compatibility
-Tested on Giant Swarm release 9.0.0 on Azure with Kubernetes 1.15.5
+Tested on Giant Swarm release 11.3.3 on Azure with Kubernetes 1.16.8
 
 ## Credit
 

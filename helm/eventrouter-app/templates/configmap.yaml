@@ -8,3 +8,8 @@ kind: ConfigMap
 metadata:
   name: {{ include "eventrouter-app.name" . }}-values
   namespace: {{ .Release.Namespace }}
+  labels:
+    chart: {{ template "eventrouter-app.chart" . }}
+    app: {{ template "eventrouter-app.name" . }}
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"

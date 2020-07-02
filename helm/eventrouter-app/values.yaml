@@ -24,3 +24,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+networkPolicies:
+  # when  enabled, it will create default deny-all policy together with an app  specific policy
+  # kubernetes endpoint is required then
+  enabled: false
+  # provide 'kubectl get endpoints kubernetes' CIDR e.g. 10.158.0.5/32
+  kubernetesEndpointCIDR: ''
