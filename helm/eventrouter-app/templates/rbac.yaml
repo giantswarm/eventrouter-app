@@ -22,11 +22,13 @@ rules:
 - apiGroups: [""]
   resources: ["events"]
   verbs: ["get", "watch", "list"]
+{{- if .Values.networkPolicies.enabled }}
 - apiGroups: ['extensions']
   resources: ['podsecuritypolicies']
   verbs:     ['use']
   resourceNames:
   - {{ template "eventrouter-app.fullname" . }}
+{{- end }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding

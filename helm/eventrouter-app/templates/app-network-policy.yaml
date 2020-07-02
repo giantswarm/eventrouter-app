@@ -17,7 +17,7 @@ spec:
   egress:
   - to:
     - ipBlock:
-        cidr: {{ .Values.networkPolicies.kubernetesEndpointCidr }}
+        cidr: {{ .Values.networkPolicies.kubernetesEndpointCIDR }}
     ports:
     - protocol: TCP
       port: 443
