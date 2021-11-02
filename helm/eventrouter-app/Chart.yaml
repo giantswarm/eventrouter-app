@@ -3,7 +3,6 @@ appVersion: v0.3
 description: "Heptio Event Router: A simple introspective kubernetes service that forwards events to a specified sink."
 home: https://github.com/heptiolabs/eventrouter
 name: eventrouter-app
-icon: https://s.giantswarm.io/app-icons/1/png/eventrouter-app-light.png
 maintainers:
 - name: Heptio/VMWare
   url: https://github.com/heptiolabs/eventrouter
