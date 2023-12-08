@@ -12,3 +12,5 @@ sources:
 - https://github.com/heptiolabs/eventrouter
 - https://github.com/giantswarm/eventrouter-app
 version: [[ .Version ]]
+annotations:
+  application.giantswarm.io/team: atlas
