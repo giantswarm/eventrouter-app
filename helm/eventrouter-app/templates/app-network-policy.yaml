@@ -5,10 +5,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   name: {{ template "eventrouter-app.name" . }}-network-policy
   labels:
-    chart: {{ template "eventrouter-app.chart" . }}
-    app: {{ template "eventrouter-app.name" . }}
-    release: "{{ .Release.Name }}"
-    heritage: "{{ .Release.Service }}"
+    {{- include "eventrouter-app.labels" . | nindent 4 }}
 spec:
   podSelector:
     matchLabels:

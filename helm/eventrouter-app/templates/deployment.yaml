@@ -3,9 +3,7 @@ kind: Deployment
 metadata:
   name: {{ include "eventrouter-app.name" . }}-deployment
   labels:
-    chart: {{ template "eventrouter-app.chart" . }}
-    app: {{ template "eventrouter-app.name" . }}
-    release: "{{ .Release.Name }}"
+    {{- include "eventrouter-app.labels" . | nindent 4 }}
   namespace: "{{ .Release.Namespace }}"
 spec:
   selector:
@@ -16,8 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "eventrouter-app.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
+        {{- include "eventrouter-app.labels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "eventrouter-app.fullname" . }}
     {{- with .Values.imagePullSecrets }}

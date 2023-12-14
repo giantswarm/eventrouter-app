@@ -35,11 +35,16 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "eventrouter-app.labels" -}}
+app: {{ include "eventrouter-app.name" . }}
 app.kubernetes.io/name: {{ include "eventrouter-app.name" . }}
+release: "{{ .Release.Name }}"
+chart: {{ include "eventrouter-app.chart" . }}
 helm.sh/chart: {{ include "eventrouter-app.chart" . }}
+heritage: "{{ .Release.Service }}"
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
 {{- end -}}

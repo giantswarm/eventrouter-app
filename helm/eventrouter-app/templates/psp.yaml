@@ -3,10 +3,7 @@ kind: PodSecurityPolicy
 metadata:
   name: {{ template "eventrouter-app.fullname" . }}-psp
   labels:
-    chart: {{ template "eventrouter-app.chart" . }}
-    app: {{ template "eventrouter-app.name" . }}
-    release: "{{ .Release.Name }}"
-    heritage: "{{ .Release.Service }}"
+    {{- include "eventrouter-app.labels" . | nindent 4 }}
 spec:
   allowPrivilegeEscalation: false
   fsGroup:

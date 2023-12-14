@@ -4,10 +4,7 @@ metadata:
   name: {{ include "eventrouter-app.fullname" . }} 
   namespace: {{ .Release.Namespace }}
   labels:
-    chart: {{ template "eventrouter-app.chart" . }}
-    app: {{ template "eventrouter-app.name" . }}
-    release: "{{ .Release.Name }}"
-    heritage: "{{ .Release.Service }}"
+    {{- include "eventrouter-app.labels" . | nindent 4 }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
